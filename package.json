@@ -12,19 +12,28 @@
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.0.6",
     "cross-env": "^6.0.0",
     "eslint": "^6.5.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.0.7",
-    "lint-staged": "^9.4.0"
+    "lint-staged": "^9.4.0",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "regenerator-runtime": "^0.13.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha --require @babel/register --require regenerator-runtime/runtime --exit",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "start": "node ./dist/index.js",
     "build": "babel src -d dist",
     "lint": "eslint \"**/*.js\" --fix",
-    "start:dev": "npm run build && npm start"
+    "start:dev": "npm run build && npm start",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
