@@ -17,4 +17,4 @@ app.use('*', (request, response) => response.status(404).json('route does not ex
 app.use(errorHandler);
 
 // eslint-disable-next-line no-console
-app.listen(port, () => console.log(`Listening on port ${port}`));
+export default app.listen(port, () => console.log(`Listening on port ${port}`));

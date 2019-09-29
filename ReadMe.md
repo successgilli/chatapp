@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/successgilli/chatapp.svg?branch=develop)](https://travis-ci.org/successgilli/chatapp)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4667c3066c2e739f4126/test_coverage)](https://codeclimate.com/github/successgilli/chatapp/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4667c3066c2e739f4126/maintainability)](https://codeclimate.com/github/successgilli/chatapp/maintainability)
 
 # Chat App (G-Chat)
 Chat App (G-Chat) is a web application that allows users to chat and send mesaages in real-time while providing features such as image upload for easy user identification.
