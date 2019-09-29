@@ -12,12 +12,18 @@
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
-    "cross-env": "^6.0.0"
+    "cross-env": "^6.0.0",
+    "eslint": "^6.5.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.7",
+    "lint-staged": "^9.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dist/index.js",
     "build": "babel src -d dist",
+    "lint": "eslint \"**/*.js\" --fix",
     "start:dev": "npm run build && npm start"
   },
   "repository": {
@@ -36,5 +42,10 @@
   "bugs": {
     "url": "https://github.com/successgilli/chatapp/issues"
   },
-  "homepage": "https://github.com/successgilli/chatapp#readme"
+  "homepage": "https://github.com/successgilli/chatapp#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
 }

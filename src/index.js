@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
 import routes from './routes';
-import { errorHandler } from './Helper.js/errorHandler';
+import errorHandler from './Helper.js/errorHandler';
 
 dotenv.config();
 
@@ -16,4 +16,5 @@ app.use('/api/v1', routes);
 app.use('*', (request, response) => response.status(404).json('route does not exist'));
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Listening on port ${port}`) );
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`Listening on port ${port}`));
