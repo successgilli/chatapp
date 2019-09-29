@@ -1,0 +1,40 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Chat-app server",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "cross-env": "^6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/index.js",
+    "build": "babel src -d dist",
+    "start:dev": "npm run build && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/successgilli/chatapp.git"
+  },
+  "keywords": [
+    "chatapp",
+    "node",
+    "express",
+    "gilbert",
+    "whatsapp"
+  ],
+  "author": "A.N Gilbert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/successgilli/chatapp/issues"
+  },
+  "homepage": "https://github.com/successgilli/chatapp#readme"
+}
