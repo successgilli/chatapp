@@ -6,6 +6,8 @@ var _socket = _interopRequireDefault(require("socket.io"));
 
 var _path = _interopRequireDefault(require("path"));
 
+var _onLineUsers = require("./onLineUsers");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
@@ -18,8 +20,21 @@ var server = app.listen(3000, function () {
 });
 var io = (0, _socket["default"])(server);
 io.on('connection', function (socket) {
-  console.log(socket.id);
+  socket.on('joined', function (data) {
+    console.log(data, socket.id);
+
+    _onLineUsers.users.push({
+      name: data.name,
+      id: socket.id
+    });
+
+    console.log(_onLineUsers.users, ' online');
+  });
   socket.on('chat', function (data) {
-    io.sockets.emit('chat', data);
+    console.log(_onLineUsers.users.find(function (x) {
+      return x.id === socket.id;
+    }), ' user chatted');
+    console.log(_onLineUsers.users[1].id);
+    socket.broadcast.to(_onLineUsers.users[1].id).emit('chat', data); // io.sockets.emit('chat', data);
   });
 });

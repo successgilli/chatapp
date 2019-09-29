@@ -1,4 +1,8 @@
 const socket = io();
+socket.on('connect', () => {
+    console.log('entered');
+    socket.emit('joined', {name: localStorage.getItem('name')})
+})
 
 const btn = document.getElementById('btn');
 const input = document.getElementById('input');
